@@ -6,28 +6,19 @@ public class Input : MonoBehaviour
 {
     private TouchScreenKeyboard keyboard;  
     public TMP_Text nameTextOnScreen; 
-    public TMP_Text randomTextOnScreen; 
-    // public TMP_InputField inputField; 
-    private int counter = 0;
-    // private TMP_InputField nameInput;
+    public TMP_Text randomTextOnScreen;  
+    private int counter = 0; 
+    private string name;
 
     void Start () {
-    //    nameInput = inputField.GetComponent<TMP_InputField>();
+        name = "NoName333"; 
     } 
 
     public void OpenMobileKeyboard()
     {   
         //if mobile browser 
         keyboard = TouchScreenKeyboard.Open(randomTextOnScreen.text, TouchScreenKeyboardType.Default); 
-    }
-  
-    public void ShowUserInput() { 
-        // nameInput.text = keyboard.text; 
-        randomTextOnScreen.text = keyboard.text;
-        Debug.Log(randomTextOnScreen.text);
-        Debug.Log(keyboard.text);
-    }
-
+    } 
     public void ShowCounterForDebugging() { 
                 counter += 1;
                 randomTextOnScreen.text = counter.ToString(); 
@@ -36,9 +27,11 @@ public class Input : MonoBehaviour
     void Update()
     {
                 //if mobile browser 
-            if (keyboard != null && !keyboard.active) {
-                ShowUserInput();
+            if (keyboard != null && keyboard.active) {
+                 name = keyboard.text;
                 ShowCounterForDebugging();
-            } 
+            } else if (keyboard != null && !keyboard.active) {
+                nameTextOnScreen.text = name; 
+            }
     }  
 }

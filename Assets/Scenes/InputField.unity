@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18254da3bac441a0b7ccb9d9502f34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameTextOnScreen: {fileID: 0}
+  nameTextOnScreen: {fileID: 371557020}
   randomTextOnScreen: {fileID: 1672558694}
 --- !u!1 &1451162325
 GameObject:
